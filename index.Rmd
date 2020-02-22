@@ -131,7 +131,7 @@ Scott Brenstuhl {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_text_block(text_blocks, 'intro')
+# print_text_block(text_blocks, 'intro')
 ```
 
 
