@@ -1,22 +1,22 @@
 ---
-title: Nick Strayer's Resume"
-author: Nick Strayer
+title: "Scott Brenstuhl's Resume"
+author: Scott Brenstuhl
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
-    css: ['css/custom_resume.css', 'css/styles.css', 'resume']
+    css: ['css/styles.css', 'resume']
     # set it to true for a self-contained HTML page but it'll take longer to render
     self_contained: true
 ---
-
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
   results='asis', 
   echo = FALSE
 )
-library(tidyverse)
+
 library(glue)
+library(tidyverse)
 
 # ======================================================================
 # These variables determine how the the data is loaded and how the exports are
@@ -27,7 +27,7 @@ library(glue)
 using_googlesheets <- TRUE
 
 # Just the copied URL from the sheet
-positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/14MQICF2F8-vf8CKPF1m4lyGKO6_thG-4aSwat1e2TWc"
+positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/1yvklOszz8MbsHS71gl_wW0IJmskR3AKU08dVBjnLakc"
 
 # Is this sheet available for anyone to read? If you're using a private sheet
 # set this to false and go to gather_data.R and run the data loading manually
@@ -38,6 +38,10 @@ sheet_is_publicly_readable <- TRUE
 # set this to true to have links turned into footnotes at the end of the
 # document
 PDF_EXPORT <- FALSE
+# PDF_EXPORT <- TRUE
+
+CV_PDF_LOC <- "https://github.com/nstrayer/cv/raw/master/strayer_cv.pdf"
+CV_HTML_LOC <- "brenstuhl.com/resume"
 
 
 # A global (gasp) variable that holds all the links that were inserted for
@@ -53,28 +57,37 @@ source('parsing_functions.R')
 
 # Load data for CV/Resume
 source('gather_data.R')
-
-# Now we just need to filter down the position data to include less verbose
-# categories and only the entries we have designated for the resume
-position_data <- position_data %>% 
-  filter(in_resume) %>% 
-  mutate(
-    # Build some custom sections by collapsing others
-    section = case_when(
-      section %in% c('research_positions', 'industry_positions') ~ 'positions', 
-      section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
-      TRUE ~ section
-    )
-  ) 
 ```
 
+
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("
+  <style>
+  :root{
+    --decorator-outer-offset-left: -6.5px;
+  }
+  </style>")
+}
+```
 
 
 Aside
 ================================================================================
 
 
-![logo](logo.png){width=100%}
+<!-- ![logo](logo.png){width=100%} -->
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+# if(PDF_EXPORT){
+#   glue("View this CV online with links at _{CV_HTML_LOC}_")
+# } else {
+#   glue("[<i class='fas fa-download'></i> Download a PDF of this CV]({CV_PDF_LOC})")
+# }
+```
 
 Contact {#contact}
 --------------------------------------------------------------------------------
@@ -85,79 +98,82 @@ contact_info %>%
 ```
 
 
-
-Language Skills {#skills}
+Technology Skills {#skills}
 --------------------------------------------------------------------------------
+
+- <i class="fas fa-pen-nib"></i> Scripting: R, Python
+- <i class="fa fa-database"></i> SQL: Redshift, Postgres
+- <i class="fas fa-wrench"></i> Data Engineering: Airflow, Astronomer
+- <i class="fas fa-chart-bar"></i> Analysis: Tidyverse (especially dplyr, purrr, ggplot)
+- <i class="far fa-comments"></i> Communication: Rmarkdown, Looker, Shiny 
+- <i class="fas fa-cogs"></i> Machine Learning: Sagemaker, DataBricks, MLFlow
+- <i class="fas fa-terminal"></i> Other: git (and GitHub), Shiny, Regex, Bash/zsh, c++
+
 
 ```{r}
-build_skill_bars(skills)
+# build_skill_bars(skills)
 ```
-
-
-
-Open Source Contributions {#open-source}
---------------------------------------------------------------------------------
-
-All projects available at `github.com/nstrayer/<name>`
-
-
-- `shinysense`: R package to use sensor data in Shiny apps
-- `tuftesque`: Hugo theme (behind LiveFreeOrDichotomize.com)
-- `sbmR`: R package for fitting stochasitic block models
-
-
-More info {#more-info}
---------------------------------------------------------------------------------
-
-See full CV at nickstrayer.me/cv for more complete list of positions and publications.
-
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
+Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
 
-Source code: [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
+The source code is available at [github.com/808sandbr/resume](https://github.com/808sandbr/resume).
 
 Last updated on `r Sys.Date()`.
-
 
 
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Scott Brenstuhl {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_text_block(text_blocks, 'intro')
+# print_text_block(text_blocks, 'intro')
 ```
 
 
+Experience {data-icon=laptop}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'industry_positions')
+```
+
+Independent Coursework {data-icon=graduation-cap data-concise=true #ind_coursework}
+--------------------------------------------------------------------------------
+
+```{r}
+high_level_print_section(position_data, 'independent_coursework')
+```
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
-position_data %>% print_section('education')
+print_section(position_data, 'education')
 ```
 
 
 
-Selected Positions {data-icon=suitcase}
---------------------------------------------------------------------------------
-
 ```{r}
-position_data %>% print_section('positions')
-```
-
-
-
-Selected Writing {data-icon=newspaper}
---------------------------------------------------------------------------------
-
-```{r}
-position_data %>% print_section('writings')
+# if(PDF_EXPORT){
+#   cat("
+#   
+# Links {data-icon=link}
+# --------------------------------------------------------------------------------
+# 
+# <br>
+# 
+# 
+# ")
+#   
+#   walk2(links, 1:length(links), function(link, index){
+#     print(glue('{index}. {link}'))
+#   })
+# }
 ```
 
 
