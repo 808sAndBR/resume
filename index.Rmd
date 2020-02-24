@@ -142,7 +142,12 @@ Experience {data-icon=laptop}
 print_section(position_data, 'industry_positions')
 ```
 
+Independent Coursework {data-icon=graduation-cap data-concise=true #ind_coursework}
+--------------------------------------------------------------------------------
 
+```{r}
+high_level_print_section(position_data, 'independent_coursework')
+```
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
