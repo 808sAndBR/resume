@@ -7,7 +7,6 @@ output:
     css: ['css/resume_copy.css', 'css/styles.css']
     # set it to true for a self-contained HTML page but it'll take longer to render
     self_contained: true
-    margin: 3cm
 ---
 
 
@@ -119,9 +118,9 @@ Technology Skills {#skills}
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
+Made with the R package </br> [**pagedown**](https://github.com/rstudio/pagedown)  
 
-The source code is available at [github.com/808sandbr/resume](https://github.com/808sandbr/resume).
+The source code is available at [github.com/808sandbr/resume](https://github.com/808sandbr/resume)
 
 Last updated on `r Sys.Date()`.
 
