@@ -4,10 +4,12 @@ author: Scott Brenstuhl
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
-    css: ['css/styles.css', 'resume']
+    css: ['css/resume_copy.css', 'css/styles.css']
     # set it to true for a self-contained HTML page but it'll take longer to render
     self_contained: true
+    margin: 3cm
 ---
+
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
@@ -142,7 +144,7 @@ Experience {data-icon=laptop}
 print_section(position_data, 'industry_positions')
 ```
 
-Independent Coursework {data-icon=graduation-cap data-concise=true #ind_coursework}
+Independent Coursework {data-icon=book data-concise=true #ind_coursework}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -176,4 +178,19 @@ print_section(position_data, 'education')
 # }
 ```
 
+```{css, echo=FALSE}
+[data-id="ind_coursework"] .details div:empty {
+   display: none;
+} 
 
+[data-id="ind_coursework"] .level3{
+  padding-top: 0rem !important;
+  margin-top: -7px;
+  
+}
+
+/*[data-id="title"] {
+  margin-bottom: 0px;
+}*/
+
+```
