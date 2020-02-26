@@ -118,7 +118,7 @@ Technology Skills {#skills}
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made with the R package </br> [**pagedown**](https://github.com/rstudio/pagedown)  
+Made w/ R & [**pagedown**](https://github.com/rstudio/pagedown)  
 
 The source code is available at [github.com/808sandbr/resume](https://github.com/808sandbr/resume)
 
