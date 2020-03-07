@@ -4,7 +4,7 @@ This is my Resume. The output lives at: https://brenstuhl.com/resume/
 
 Consider also checking out my friends that I worked with at Brandless (maybe even consider hiring us):
 
-Lisa Oshita's: https://github.com/lisaoshita/resume
+Lisa Oshita's: https://github.com/lisaoshita/resume  
 Kaylin Pavlik's: https://github.com/walkerkq/resume
 
 
