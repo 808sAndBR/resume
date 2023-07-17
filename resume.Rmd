@@ -102,13 +102,16 @@ contact_info %>%
 Technology Skills {#skills}
 --------------------------------------------------------------------------------
 
-- <i class="fas fa-pen-nib"></i> Scripting: R, Python
-- <i class="fa fa-database"></i> SQL: Redshift, Postgres
-- <i class="fas fa-wrench"></i> Data Engineering: Airflow, Astronomer
+- <i class="fas fa-pen-nib"></i> Scripting: Python, R, TypeScript
+- <i class="fa fa-database"></i> Data Storage/Retrival: Snowflake, Redshift, DynamoDb, Postgres, s3, Athena
+- <i class="fas fa-wrench"></i> Data Engineering: dbt, Glue, s3 
+- <i class="fa fa-code"></i> Microservices: Python, TypeScript, Lambdas, DynamoDb, API Gateway
+<!-- - <i class="fa-regular fa-gear-code"></i> Infrastructure as Code: aws-cdk, cloudformation -->
+- <i class="fas fa-cogs"></i> Infrastructure as Code: aws-cdk, cloudformation
+- <i class="fa fa-music"></i> Orchestration: AWS Step Function, Airflow
 - <i class="fas fa-chart-bar"></i> Analysis: Tidyverse (especially dplyr, purrr, ggplot)
-- <i class="far fa-comments"></i> Communication: Rmarkdown, Looker, Shiny 
-- <i class="fas fa-cogs"></i> Machine Learning: Sagemaker, DataBricks, MLFlow
-- <i class="fas fa-terminal"></i> Other: git (and GitHub), Shiny, Regex, Bash/zsh, c++
+<!-- - <i class="fas fa-cogs"></i> Machine Learning: Sagemaker, DataBricks, MLFlow -->
+- <i class="fas fa-terminal"></i> Other: git (and GitHub), Regex, Bash/zsh
 
 
 ```{r}
